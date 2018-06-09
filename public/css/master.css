@@ -1,0 +1,39 @@
+body {
+  padding: 0;
+  margin: 0;
+}
+/* top navigation bar container */
+#header {
+  border: 1px solid black;
+  width: 100%;
+  height: 60px;
+  line-height: 60px;
+  position: fixed;
+}
+/* top navigation bar logo */
+#header h1 {
+  position: absolute;
+  left: 0;
+  padding: 0 15px;
+  font-family: 'Jua', sans-serif;
+}
+/* navigation list */
+#topNav {
+  position: absolute;
+  right: 0;
+}
+#topNav ul li {
+  display: inline-block;
+}
+#topNav ul li a {
+  display: block;
+  padding: 0 10px;
+}
+
+
+.remove-all-margin {
+  margin: 0 !important;
+}
+.remove-all-padding {
+  padding: 0 !important;
+}

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/css/master.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Jua" rel="stylesheet">
+    <script type="text/javascript" src="/scripts/client.js"></script>
+    {% block header %}{% endblock %}
+  </head>
+  <body>
+    <!-- top navigation bar container -->
+    <div id="header">
+      <!-- top navigation logo -->
+      <h1>
+        <i class="fa fa-camera-retro"></i> PhotoShare
+      </h1>
+      <!-- top navigation list -->
+      <nav id="topNav">
+        <ul class="list-unstyled">
+          <li>
+            <a href="#">
+              <button type="button" class="btn btn-sm btn-secondary">
+                <i class="fa fa-home"></i> Home
+              </button>
+            </a></li>
+          <li>
+            <a href="#">
+              <button type="button" class="btn btn-sm btn-primary">
+                <i class="fa fa-github"></i> Login
+              </button>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+
+    {% block content %}
+    {% endblock %}
+  </body>
+</html>
