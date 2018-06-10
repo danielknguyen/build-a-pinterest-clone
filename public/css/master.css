@@ -4,7 +4,7 @@ body {
 }
 /* top navigation bar container */
 #header {
-  border: 1px solid black;
+  background-color: #f1f1f1;
   width: 100%;
   height: 60px;
   line-height: 60px;
@@ -14,8 +14,12 @@ body {
 #header h1 {
   position: absolute;
   left: 0;
-  padding: 0 15px;
+  padding: 5px 15px;
   font-family: 'Jua', sans-serif;
+}
+#header h1 a {
+  text-decoration: none;
+  color: #000000;
 }
 /* navigation list */
 #topNav {
