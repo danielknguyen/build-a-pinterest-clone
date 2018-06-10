@@ -44,14 +44,16 @@
             <li>
               <a href="/logout">
                 <button type="button" class="btn btn-sm btn-danger">
-                  <i class="fa fa-sign-out-alt"></i> Logout
+                  <i class="fa fa-sign-out" aria-hidden="true"></i> Logout
                 </button>
               </a>
             </li>
           {% else %}
             <li>
               <a href="/">
-                <i class="fa fa-home" aria-hidden="true"></i> Home
+                <button type="button" class="btn btn-sm btn-secondary">
+                  <i class="fa fa-home" aria-hidden="true"></i> Home
+                </button>
               </a>
             </li>
             <li>
@@ -81,16 +83,18 @@
         <li>
           <a href="/logout">
             <button type="button" class="btn btn-sm btn-danger">
-              <i class="fa fa-sign-out-alt"></i> Logout
+              <i class="fa fa-sign-out" aria-hidden="true"></i> Logout
             </button>
           </a>
         </li>
       {% else %}
-        <a href="/auth/github">
-          <button type="button" class="btn btn-sm btn-primary">
-            <i class="fa fa-github"></i> Login
-          </button>
-        </a>
+        <li>
+          <a href="/auth/github">
+            <button type="button" class="btn btn-sm btn-primary">
+              <i class="fa fa-github"></i> Login
+            </button>
+          </a>
+        </li>
       {% endif %}
     </div>
 

@@ -23,7 +23,7 @@ var routes = function(app, passport) {
     });
   });
 
-  app.get('/logout', function(req, res){
+  app.get('/logout', isAuthenticated, function(req, res){
     console.log('logging out');
     req.logout(); // passport terminates session
     res.redirect('/');
