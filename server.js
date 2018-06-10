@@ -3,6 +3,7 @@ const express = require('express'),
     engines = require('consolidate'),
     morgan = require('morgan'),
     util = require('util'),
+    flash = require('connect-flash'),
     bodyParser = require('body-parser'),
     cookieParser = require('cookie-parser'),
     session = require('express-session'),
@@ -37,6 +38,14 @@ app.use(session({
 }));
 app.use(passport.initialize());
 app.use(passport.session());
+app.use(flash()); // flash messaging
+
+// set success and error variables on every request
+app.use(function(req, res, next) {
+  res.locals.success = req.flash('success');
+  res.locals.error = req.flash('error');
+  next();
+});
 
 passport.serializeUser(function(user, done) {
   // null is for errors
