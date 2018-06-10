@@ -5,6 +5,12 @@
   .sideNavButton {
     display: block;
   }
+  .grid-item {
+    width: 100%;
+  }
+  .grid-item--width2 {
+    width: 100%;
+  }
 }
 @media only screen and (min-width: 480px) and (max-width: 767px) {
   #topNav ul {
