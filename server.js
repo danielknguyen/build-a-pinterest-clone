@@ -9,6 +9,7 @@ const express = require('express'),
     session = require('express-session'),
     MongoStore = require('connect-mongo')(session),
     db = require('./db/db.js'),
+    User = require('./models/userSchema.js'),
     passport = require('passport'),
     GitHubStrategy = require('passport-github').Strategy,
     // create express instance
@@ -74,4 +75,4 @@ app.listen(port, () => {
   console.log(`Express server is listening on ${port}`);
 });
 
-const routes = require('./routes/routes.js')(app, passport);
+const routes = require('./routes/routes.js')(app, passport, User);
