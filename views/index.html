@@ -15,24 +15,34 @@
     <div id="header">
       <!-- top navigation logo -->
       <h1>
-        <i class="fa fa-camera-retro"></i> PhotoShare
+        <a href="/">
+          <i class="fa fa-camera-retro"></i> PhotoShare
+        </a>
       </h1>
       <!-- top navigation list -->
       <nav id="topNav">
         <ul class="list-unstyled">
-          <li>
-            <a href="#">
-              <button type="button" class="btn btn-sm btn-secondary">
-                <i class="fa fa-home"></i> Home
-              </button>
-            </a></li>
-          <li>
-            <a href="#">
-              <button type="button" class="btn btn-sm btn-primary">
-                <i class="fa fa-github"></i> Login
-              </button>
-            </a>
-          </li>
+          {% if user %}
+            <li>
+              <img src="{{ user._json.avatar_url }}" alt="{{ user._json.name }}" width="30" height="30" style="border-radius: 25px" style="display: inline-block;">
+              <span style="display: inline-block;">{{ user._json.login }}</span>
+            </li>
+            <li>
+              <a href="/logout">
+                <button type="button" class="btn btn-sm btn-danger">
+                  <i class="fa fa-sign-out-alt"></i> Logout
+                </button>
+              </a>
+            </li>
+          {% else %}
+            <li>
+              <a href="/auth/github">
+                <button type="button" class="btn btn-sm btn-primary">
+                  <i class="fa fa-github"></i> Login
+                </button>
+              </a>
+            </li>
+          {% endif %}
         </ul>
       </nav>
     </div>
