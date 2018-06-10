@@ -24,4 +24,11 @@ $(document).ready(function() {
   $('.closebtn').on('click', function() {
     closeNav();
   });
+
+  $('.grid').masonry({
+    // options
+    itemSelector: '.grid-item',
+    columnWidth: 40,
+    fitWidth: true
+  });
 });
