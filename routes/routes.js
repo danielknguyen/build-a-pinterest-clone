@@ -9,7 +9,8 @@ var routes = function(app, passport) {
      }),
      function(req, res) {
     // Successful authentication, redirect home.
-    res.redirect('/dashboard/' + req.user._json.login);
+    req.flash('success', 'Successfully logged in!');
+    res.redirect('/');
   });
 
   app.get('/', (req, res) => {
