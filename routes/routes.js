@@ -1,4 +1,4 @@
-var routes = function(app, passport) {
+var routes = function(app, passport, User) {
 
   app.get('/auth/github', passport.authenticate('github'));
 
@@ -9,7 +9,7 @@ var routes = function(app, passport) {
      }),
      function(req, res) {
     // Successful authentication, redirect home.
-    req.flash('success', 'Successfully logged in!');
+    req.flash('success', 'Successfully logged in');
     res.redirect('/');
   });
 
@@ -18,12 +18,73 @@ var routes = function(app, passport) {
   });
 
   app.get('/dashboard/:user', isAuthenticated, function(req, res) {
-    res.render('dashboard.html', {
-      user: req.user
+    User.findOne({ 'github_id': req.user.id }, function(err, data) {
+      if (err) {
+        console.log(err);
+      }
+
+      res.render('dashboard.html', {
+        user: req.user,
+        data: data
+      });
     });
   });
 
-  app.get('/logout', isAuthenticated, function(req, res){
+  app.post('/dashboard/:user/add', isAuthenticated, function(req, res) {
+    var username = req.params.user; // user's github name
+    var imageLink = req.body.formImageLink; // image link from form
+
+    var step1 = new Promise(function(resolve, reject) {
+      User.findOne({ 'github_id': req.user.id }, function(err, user) {
+        if (err) {
+          console.log(err);
+        }
+
+        if (user) {
+          // user exists -- push new link into existing document
+          var image = {
+            link: imageLink,
+            likes: 0,
+            views: 0
+          };
+          user.images.push(image);
+
+          user.save(function(err) {
+            if (err) console.log(err);
+          });
+
+          resolve(user);
+
+        } else {
+          // user is null -- create new user and assign a new image into document
+          var new_user = new User(); // instantiate new user object
+          var image = {
+            link: imageLink,
+            likes: 0,
+            views: 0
+          };
+          new_user.github_id = req.user.id;
+          new_user.github_name = req.user._json.name;
+          new_user.images = image;
+
+          new_user.save(function(err) { // save into database
+            if (err) {
+              console.log(err);
+            }
+          });
+
+          resolve(new_user);
+        };
+      });
+    });
+
+    step1.then(function() {
+      req.flash('success', 'Successfully linked to image');
+      res.redirect('/dashboard/' + username);
+    });
+  });
+
+  app.get('/logout', isAuthenticated, function(req, res) {
     console.log('logging out');
     req.logout(); // passport terminates session
     res.redirect('/');
