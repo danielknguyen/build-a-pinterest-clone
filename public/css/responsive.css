@@ -1,28 +1,84 @@
-@media only screen and (min-width: 320px) and (max-width: 479px) {
+/*Media Queries*/
+@media only screen and (max-width : 1199px),
+only screen and (max-device-width : 1199px) {
+  #grid {
+    width: 1000px;
+  }
+  .masonryImage {
+    width: 300px;
+    margin: 3px;
+  }
+  .grid-item-photo {
+    width: 290px;
+  }
+}
+
+@media only screen and (max-width : 999px),
+only screen and (max-device-width : 999px) {
+  #grid {
+    width: 600px;
+  }
+  .masonryImage {
+    width: 560px;
+  }
+  .grid-item-photo {
+    width: 550px;
+  }
+}
+
+@media only screen and (max-width : 799px),
+only screen and (max-device-width : 799px) {
+  #grid {
+    width: 500px;
+  }
   #topNav ul {
     display: none;
   }
   .sideNavButton {
     display: block;
   }
-  .grid-item {
-    width: 100%;
+  .masonryImage {
+    width: 460px;
   }
-  .grid-item--width2 {
-    width: 100%;
+  .grid-item-photo {
+    width: 450px;
   }
 }
-@media only screen and (min-width: 480px) and (max-width: 767px) {
+
+@media only screen and (max-width : 599px),
+only screen and (max-device-width : 599px) {
+  #grid {
+    width: 350px;
+  }
   #topNav ul {
     display: none;
   }
   .sideNavButton {
     display: block;
   }
+  .masonryImage {
+    width: 315px;
+  }
+  .grid-item-photo {
+    width: 305px;
+  }
 }
-@media only screen and (min-width: 768px) and (max-width: 991px) {
 
-}
-@media only screen and (min-width: 992px) and (max-width: 1999px) {
-
+@media only screen and (max-width : 399px),
+only screen and (max-device-width : 399px) {
+  #grid {
+    width: 300px;
+  }
+  #topNav ul {
+    display: none;
+  }
+  .sideNavButton {
+    display: block;
+  }
+  .masonryImage {
+    width: 260px;
+  }
+  .grid-item-photo {
+    width: 250px;
+  }
 }
