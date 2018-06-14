@@ -25,10 +25,15 @@ $(document).ready(function() {
     closeNav();
   });
 
-  $('.grid').masonry({
-    // options
-    itemSelector: '.grid-item',
-    columnWidth: 40,
-    fitWidth: true
+  $(function() {
+
+    var $container = $('#grid');
+
+    $container.imagesLoaded( function() {
+      $container.masonry({
+        itemSelector : '.masonryImage'
+      });
+    });
+
   });
 });
