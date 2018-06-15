@@ -40,7 +40,7 @@ $(document).ready(function() {
   $('.grid-btn').on('click', function() {
     var linkId = $(this).val();
     $.post({
-      url: "http://127.0.0.1:3000/likes/" + linkId,
+      url: "https://fcc-photo-share.herokuapp.com/likes/" + linkId,
       success: function(results) {
         $('#grid-item-likes' + results._id).html(results.likes);
         $('#item-likes' + results._id).html(results.likes);
@@ -54,7 +54,7 @@ $(document).ready(function() {
   $('.masonryImage').on('click', function() {
     var linkId = $(this).attr('name');
     $.post({
-      url: "http://127.0.0.1:3000/views/" + linkId,
+      url: "https://fcc-photo-share.herokuapp.com/views/" + linkId,
       success: function(results) {
         $('#grid-item-views' + results._id).html(results.views);
         $('#item-views' + results._id).html(results.views);
