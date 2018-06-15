@@ -23,6 +23,7 @@ var linkSchema = new Schema({
     type: Number,
     trim: true
   },
+  likers: [],
   views: {
     type: Number,
     trim: true
