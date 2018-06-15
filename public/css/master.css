@@ -104,7 +104,7 @@ body {
   opacity: 0.6;
   transition: 0.2s;
 }
-#grid {
+.grid {
   width: 1200px;
   margin: 0 auto;
 }
@@ -120,10 +120,15 @@ body {
   box-shadow: 5px 5px 5px grey;
 }
 .grid-item-content {
-  padding: 10px 5px;
+  font-size: 20px;
+  padding: 10px 0;
 }
 .grid-item-photo {
   width: 260px;
+}
+#homepageContainer {
+  margin-top: 50px;
+  padding: 10px;
 }
 .remove-all-margin {
   margin: 0 !important;
